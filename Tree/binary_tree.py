@@ -80,12 +80,10 @@ class BinarySearchTreeNode:
                 return self.right
             if self.right is None:
                 return self.left
-            
             min_val = self.right.find_min()
             self.data = min_val
             self.right = self.right.delete(min_val)
         return self
-
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
     for i in range(1, len(elements)):
@@ -93,9 +91,10 @@ def build_tree(elements):
     return root
 
 if __name__ =='__main__':
-    numbers = [17, 4, 1, 20, 9, 23, 18, 34]
+    numbers = [17]
     numbers_tree = build_tree(numbers)
-    numbers_tree.delete(34)
+    numbers_tree.delete(17)
+    # numbers_tree.add_child(34)
     print("Pre order traversal:\n", numbers_tree.pre_order_traversal())
     print("In order traversal:\n", numbers_tree.in_order_traversal())
     print("Post order traversal:\n", numbers_tree.post_order_traversal())
